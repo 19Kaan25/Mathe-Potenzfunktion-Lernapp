@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Nunito", "Quicksand", system-ui, sans-serif;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: theme("colors.cream");
+  color: theme("colors.ink");
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+}
+
+/* Tap targets feel responsive, no blue flash on iOS */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* KaTeX should never overflow small screens */
+.katex {
+  font-size: 1.05em;
+}
+
+/* Hide number input spinners for a cleaner look */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

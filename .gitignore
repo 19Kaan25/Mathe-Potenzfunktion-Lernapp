@@ -1,0 +1,35 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js / build
+/.next/
+/out/
+/build
+next-env.d.ts
+
+# misc
+.DS_Store
+*.pem
+.vscode/
+.idea/
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env files
+.env*.local
+.env
+
+# local source/reference material (not part of the app)
+*.pdf
+*.jpeg
+*.jpg
+*.png
+!public/**
+
+# claude preview launch config (optional to keep; comment out to commit it)
+# .claude/
