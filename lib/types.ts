@@ -67,12 +67,26 @@ export interface PointCheckExercise extends ExerciseBase {
   point: { x: number; y: number };
 }
 
+export type PropertyPart =
+  | { type: "domain" }
+  | { type: "range" }
+  | { type: "symmetry" }
+  | { type: "monotonie"; options: string[]; correct: number };
+
+export interface PropertyExercise extends ExerciseBase {
+  kind: "property";
+  fn: PowerFn;
+  termTex: string;
+  parts: PropertyPart[];
+}
+
 export type Exercise =
   | WertetabelleExercise
   | GraphMatchExercise
   | MultipleChoiceExercise
   | EquationExercise
-  | PointCheckExercise;
+  | PointCheckExercise
+  | PropertyExercise;
 
 /* ------------------------------------------------------------------ */
 /* Module & Probeklausur                                              */

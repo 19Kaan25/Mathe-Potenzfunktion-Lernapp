@@ -7,6 +7,7 @@ import { MultipleChoice } from "@/components/exercises/MultipleChoice";
 import { EquationSolver } from "@/components/exercises/EquationSolver";
 import { PointCheck } from "@/components/exercises/PointCheck";
 import { GraphMatch } from "@/components/exercises/GraphMatch";
+import { PropertyPicker } from "@/components/exercises/PropertyPicker";
 
 export function ExerciseRenderer({
   exercise,
@@ -23,6 +24,8 @@ export function ExerciseRenderer({
       return <PointCheck exercise={exercise} {...common} />;
     case "graphMatch":
       return <GraphMatch exercise={exercise} {...common} />;
+    case "property":
+      return <PropertyPicker exercise={exercise} {...common} />;
     default:
       return null;
   }

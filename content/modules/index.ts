@@ -2,7 +2,12 @@ import type { Family, LernModul } from "@/lib/types";
 import { warmup } from "@/content/modules/00-warmup";
 import { gerade } from "@/content/modules/01-gerade";
 import { ungerade } from "@/content/modules/02-ungerade";
+import { negativ } from "@/content/modules/03-negativ";
 import { wurzel } from "@/content/modules/04-wurzel";
+import { eigenschaften } from "@/content/modules/05-eigenschaften";
+import { potenzgleichungen } from "@/content/modules/06-potenzgleichungen";
+import { transformationen } from "@/content/modules/07-transformationen";
+import { umkehr } from "@/content/modules/08-umkehr";
 
 export interface PathNode {
   slug: string;
@@ -14,64 +19,24 @@ export interface PathNode {
   status: "ready" | "soon";
 }
 
-const readyModules: LernModul[] = [warmup, gerade, ungerade, wurzel];
+const readyModules: LernModul[] = [
+  warmup,
+  gerade,
+  ungerade,
+  negativ,
+  wurzel,
+  eigenschaften,
+  potenzgleichungen,
+  transformationen,
+  umkehr,
+];
 
 export const modulesBySlug: Record<string, LernModul> = Object.fromEntries(
   readyModules.map((m) => [m.slug, m]),
 );
 
-/** Kompletter Lernpfad – auch die noch kommenden Module sind sichtbar. */
-export const learnPath: PathNode[] = [
-  node(warmup, "ready"),
-  node(gerade, "ready"),
-  node(ungerade, "ready"),
-  {
-    slug: "negative-exponenten",
-    title: "Negative Exponenten",
-    short: "Negativ",
-    subtitle: "x⁻¹, x⁻² – die Hyperbel",
-    emoji: "🪁",
-    family: "negativ",
-    status: "soon",
-  },
-  node(wurzel, "ready"),
-  {
-    slug: "eigenschaften",
-    title: "Eigenschaften-Werkzeugkasten",
-    short: "Eigenschaften",
-    subtitle: "D, W, Symmetrie & Monotonie",
-    emoji: "🧰",
-    family: "andere",
-    status: "soon",
-  },
-  {
-    slug: "potenzgleichungen",
-    title: "Potenzgleichungen lösen",
-    short: "Gleichungen",
-    subtitle: "Lösungsmengen & Sonderfälle",
-    emoji: "🧮",
-    family: "andere",
-    status: "soon",
-  },
-  {
-    slug: "transformationen",
-    title: "Verschieben & Strecken",
-    short: "Transformation",
-    subtitle: "k·(x−c)ⁿ+d mit Schiebereglern",
-    emoji: "🎚️",
-    family: "andere",
-    status: "soon",
-  },
-  {
-    slug: "umkehrfunktionen",
-    title: "Umkehrfunktionen",
-    short: "Umkehrung",
-    subtitle: "Tauschen, auflösen, spiegeln",
-    emoji: "🔄",
-    family: "andere",
-    status: "soon",
-  },
-];
+/** Kompletter Lernpfad in der richtigen Reihenfolge. */
+export const learnPath: PathNode[] = readyModules.map((m) => node(m, "ready"));
 
 function node(m: LernModul, status: "ready" | "soon"): PathNode {
   return {

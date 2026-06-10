@@ -128,6 +128,49 @@ export const probeklausur: ExamTask[] = [
       solve: { a: 2, n: 6, b: -10, rhs: 10 },
     },
   },
+  {
+    points: 3,
+    ab: 2,
+    exercise: {
+      kind: "property",
+      id: "pk-10",
+      prompt: "Aufgabe 10 – Bestimme Definitionsbereich, Wertebereich und Symmetrie.",
+      termTex: "f(x) = x^{-2}",
+      fn: { n: -2 },
+      parts: [{ type: "domain" }, { type: "range" }, { type: "symmetry" }],
+    },
+  },
+  {
+    points: 2,
+    ab: 2,
+    exercise: {
+      kind: "mc",
+      id: "pk-11",
+      prompt: "Aufgabe 11 – Wie lautet die Umkehrfunktion von $f(x)=x^3$?",
+      options: [
+        { tex: "\\sqrt[3]{x}", correct: true, why: "Die 3. Wurzel macht das Hoch-3 rückgängig." },
+        { tex: "\\tfrac{1}{x^3}", correct: false, why: "Das ist der Kehrwert, nicht die Umkehrfunktion." },
+        { tex: "x^3", correct: false },
+        { tex: "3x", correct: false },
+      ],
+    },
+  },
+  {
+    points: 3,
+    ab: 3,
+    exercise: {
+      kind: "mc",
+      id: "pk-12",
+      prompt: "Aufgabe 12 – Welcher Term gehört zum Graphen? Begründe.",
+      graphFn: { n: 2, c: 2 },
+      options: [
+        { tex: "(x-2)^2", correct: true, why: "Tiefster Punkt bei $x=2$ → nach rechts verschoben." },
+        { tex: "(x+2)^2", correct: false, why: "Das läge bei $x=-2$." },
+        { tex: "x^2-2", correct: false },
+        { tex: "x^2+2", correct: false },
+      ],
+    },
+  },
 ];
 
 export const examTotalPoints = probeklausur.reduce(
